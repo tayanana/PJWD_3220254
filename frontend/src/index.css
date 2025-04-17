@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --background-dark: #0f172a;
+  --background-light: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --border-color: #334155;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+/* Custom styles for auth pages */
+.auth-container {
+  background-image: 
+    radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.1), transparent 40%);
+  background-color: var(--background-dark);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form elements */
+.form-input {
+  @apply w-full px-4 py-3 bg-[#334155]/50 border border-[#475569] rounded-lg text-white placeholder-gray-400;
+  @apply focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-transparent;
+  @apply transition duration-200;
+}
+
+.btn-primary {
+  @apply w-full py-3 px-4 bg-[#6366f1] hover:bg-[#4f46e5] text-white font-medium rounded-lg;
+  @apply transition-colors duration-200 flex items-center justify-center space-x-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+}
